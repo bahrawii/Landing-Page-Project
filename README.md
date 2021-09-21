@@ -3,7 +3,7 @@
 ## Table of Contents
 
 * [Instructions](#instructions)
-* [Development]
+* [Development](#Development)
 
 ## Instructions
 
