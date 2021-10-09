@@ -43,14 +43,15 @@ sections.forEach(function navBuilder(element) {
 
 // Indicates whether a particular section is in viewport now.
 function inViewport(section) {
-    const viewport = section.getBoundingClientRect();
-    if (viewport.top >= 0) {
+    let rect = section.getBoundingClientRect();
+    if (rect.top <= 150 &&
+        rect.top >= -150) {
         return true;
     }
     else {
         return false;
     }
-}
+} 
 
 
 /* Loops over sections and if section is in viewport,
@@ -58,7 +59,7 @@ function inViewport(section) {
 function setActiveViewport() {
     for (let i = 0; i < navItemIds.length; i++) {
         if (inViewport(sections[i])) {
-            sections[i].classList.add("your-active-class");
+            sections[i].classList.add("your-active-class"); 
         }
         else {
             sections[i].classList.remove("your-active-class");
@@ -68,4 +69,3 @@ function setActiveViewport() {
 
 // Listens for any scrolling event.
 document.addEventListener('scroll', setActiveViewport);
-
