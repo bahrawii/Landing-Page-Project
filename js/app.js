@@ -24,13 +24,23 @@ navItemIds[index] = section.id;
 navItemNames[index] = section.dataset.nav;
 });
 
+let counter = 1;
 /* Loops over navItemIds and navItemNames arrays at the same time and
 generates navbar items dynamically. (Follows the Udacity's rubric) */
 navItemIds.forEach(function navBuilder(navItemId, index) {
+    let sectionCounter = `listItem${counter}`
     const listElement = document.createElement("li");
-    listElement.innerHTML = `<a class="menu__link" href="#${navItemId}">${navItemNames[index]}</a>`
+    listElement.innerHTML = `<li id="${sectionCounter}"><a class="menu__link">${navItemNames[index]}</a></li>`;
     navBarUL.appendChild(listElement);
+    counter = counter + 1;
 });
+
+// Loops over all sections navbar list elements available and navigates to the one pressed.
+for (let i = 1; i < navItemIds.length + 1; i++) {
+    document.getElementById(`listItem${i}`).addEventListener('click', function() {
+        document.getElementById(`section${i}`).scrollIntoView(true);
+    });
+}
 
 // Alternative way to set up navbar (Does not follow rubric).
 /**
