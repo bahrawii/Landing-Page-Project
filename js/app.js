@@ -38,7 +38,7 @@ navItemIds.forEach(function navBuilder(navItemId, index) {
 // Loops over all sections navbar list elements available and navigates to the one pressed.
 for (let i = 1; i < navItemIds.length + 1; i++) {
     document.getElementById(`listItem${i}`).addEventListener('click', function() {
-        document.getElementById(`section${i}`).scrollIntoView(true);
+        document.getElementById(`section${i}`).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
     });
 }
 
